@@ -1,0 +1,5 @@
+Helper (Yardımcı):
+
+Genellikle küçük işlevselliği olan ve genellikle tekrar eden görevleri gerçekleştirmek için kullanılan yardımcı fonksiyonlar veya sınıflardır.
+Kodun okunabilirliğini artırmak, tekrarı azaltmak ve modülerliği sağlamak için kullanılır.
+Örneğin, bir tarih işleme yardımcı fonksiyonu veya metin manipülasyonu için yardımcı bir sınıf birer örnek olabilir.

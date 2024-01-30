@@ -1,0 +1,5 @@
+Provider (Sağlayıcı):
+
+Genellikle başka bileşenlere belirli bir hizmet veya kaynak sağlayan sınıfları ifade eder.
+Veri sağlayıcıları, servis sağlayıcıları veya bağımlılık yöneticileri bu kategoriye örnek olabilir.
+Örneğin, bir veritabanı sağlayıcısı, bir API sağlayıcısı veya bir bağımlılık enjekte edici bir sağlayıcı birer örnek olabilir.

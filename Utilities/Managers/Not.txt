@@ -1,0 +1,5 @@
+Manager (Yönetici):
+
+Genellikle belirli bir bileşenin veya sürecin yaşam döngüsünü yöneten sınıfları ifade eder.
+Kaynakları yönetebilir, ömür döngülerini kontrol edebilir ve diğer bileşenler arasındaki koordinasyonu sağlayabilir.
+Örneğin, bir veritabanı yöneticisi, bir oturum yöneticisi veya bir kaynak yöneticisi birer örnek olabilir.
