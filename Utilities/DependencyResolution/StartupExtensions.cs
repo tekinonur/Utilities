@@ -18,7 +18,7 @@ public static class StartupExtensions
         /* TODO:Tüm servisler burada register edilecek Utilities içindeki */
         // Assuming IHelper and IFileHelper are within the Utilities.Helpers namespace
         //services.AddImplementations<IHelper>(typeof(Utilities.Helpers).Assembly, "Helper");
-        services.AddImplementations<IHelper>(Assembly.GetExecutingAssembly(), "Helper");
+        //services.AddImplementations<IHelper>(Assembly.GetExecutingAssembly(), "Helper");
 
 
         //services.AddImplementations(typeof(Utilities).Assembly, "Helper");
