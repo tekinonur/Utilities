@@ -1,4 +1,4 @@
-namespace Utilities.Models;
+namespace Utilities.Entities;
 
 public class BaseEntitiy
 {
