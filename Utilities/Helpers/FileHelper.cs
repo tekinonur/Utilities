@@ -8,6 +8,10 @@ using System.Security.Cryptography;
 //using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Processing;
 
 namespace Utilities.Helpers;
 
@@ -21,7 +25,6 @@ namespace Utilities.Helpers;
 public static class FileHelper
 {
     #region Path Segments and Path Names
-
 
     /// <summary>
     /// This function returns the actual filename of a file
@@ -831,4 +834,86 @@ public static class FileHelper
     }
 
     #endregion
+
+    #region File and Image Helper
+
+        private static ResizeMode _resizeMode = ResizeMode.Max;
+
+            public static byte[] GetImageBytes(IFormFile imageFile)
+        {
+            //Boyut Sabit tutulmak istenirse
+            using (var memoryStream = new MemoryStream())
+            {
+                imageFile.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+
+        public static byte[] ResizeImage(IFormFile imageFile, bool keepQualityIfLow, int width, int height, int quality, int minMegaByteToResize)
+        {
+            if (keepQualityIfLow)
+            {
+                var objBytes = GetImageBytes(imageFile);
+                var orjSize = GetFileSizeInMb(objBytes);
+                if (orjSize < minMegaByteToResize)
+                    return objBytes;
+            }
+
+            using (var stream = imageFile.OpenReadStream())
+            {
+                using (var image = Image.Load(stream))
+                {
+                    image.Mutate(x => x.Resize(new ResizeOptions { Size = new Size(width, height), Mode = _resizeMode }));
+                    using (var outputStream = new MemoryStream())
+                    {
+                        image.Save(outputStream, new JpegEncoder { Quality = quality });
+
+                        return outputStream.ToArray();
+                    }
+                }
+            }
+        }
+
+        public static byte[] ResizeImage(byte[] imageBytes, int width, int height, int quality)
+        {
+            using (var input = new MemoryStream(imageBytes))
+            using (var output = new MemoryStream())
+            {
+                using (var image = Image.Load(input))
+                {
+                    image.Mutate(x => x.Resize(new ResizeOptions { Size = new Size(width, height), Mode = _resizeMode }));
+                    image.Save(output, new JpegEncoder { Quality = quality });
+                }
+                return output.ToArray();
+            }
+        }
+
+        public static double GetFileSizeInMb(byte[] file)
+        {
+            if (file == null)
+                return 0;
+            return (double)file.Length / (1024 * 1024);
+        }
+
+        public static bool IsValid(IFormFile file, int fileSizeLimit, string[] allowedExtensions)
+        {
+            if (file?.Length > 0)
+            {
+                if (file.Length > fileSizeLimit)
+                    return false;
+
+                if (file.FileName.Length > 255)
+                    return false;
+
+                var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                if (string.IsNullOrEmpty(extension) || !allowedExtensions.Any(e => e.Contains(extension)))
+                    return false;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        #endregion
 }
