@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utilities.Services.Cloudflare.Models;
+namespace Utilities.Services.CloudflareService.Models;
 
 public class CdnResult
 {

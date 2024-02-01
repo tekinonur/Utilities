@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
-using Utilities.Services.Cloudflare.Models;
+using Utilities.Services.CloudflareService.Models;
 
-namespace Utilities.Services.Cloudflare;
+namespace Utilities.Services.CloudflareService;
 
 public interface ICloudflareService
 {

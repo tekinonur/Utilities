@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Http;
-using Utilities.Services.Cloudflare.Models;
+using Utilities.Services.CloudflareService.Models;
 using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Text;
 
-namespace Utilities.Services.Cloudflare;
+namespace Utilities.Services.CloudflareService;
 
 /// <summary>
 /// Bu servis genişletebilecek cdn den içerik silme vs eklenemsi lazım
