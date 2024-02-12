@@ -1,6 +1,6 @@
 namespace Utilities.Entities;
 
-public abstract class BaseEntitiy
+public abstract class BaseEntity
 {
     public int Id { get; set; }
 }
