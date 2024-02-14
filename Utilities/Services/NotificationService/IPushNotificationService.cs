@@ -2,7 +2,7 @@ using Utilities.Services.NotificationService.Models;
 
 namespace Utilities.Services.NotificationService;
 
-public interface INotificationService
+public interface IPushNotificationService
 {
-    Task<bool> SendNotification(SendNotificationRequest request);
+    Task<bool> SendNotification(PushMessage request);
 }

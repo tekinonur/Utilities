@@ -6,17 +6,17 @@ using Utilities.Services.NotificationService.Models;
 
 namespace Utilities.Services.NotificationService;
 
-public class NotificationService : INotificationService
+public class PushNotificationService : IPushNotificationService
 {
-    private readonly ILogger<NotificationService> _logger;
+    private readonly ILogger<PushNotificationService> _logger;
 
-    public NotificationService(
-        ILogger<NotificationService> logger)
+    public PushNotificationService(
+        ILogger<PushNotificationService> logger)
     {
         _logger = logger;
     }
 
-    public async Task<bool> SendNotification(SendNotificationRequest request)
+    public async Task<bool> SendNotification(PushMessage request)
     {
         if (string.IsNullOrEmpty(request.DeviceToken))
             return false;

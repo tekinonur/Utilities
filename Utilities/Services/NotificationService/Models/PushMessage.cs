@@ -1,16 +1,16 @@
 namespace Utilities.Services.NotificationService.Models;
 
-public class SendNotificationRequest
+public class PushMessage
 {
     public string DeviceToken { get; set; }
     public string Title { get; set; }
     public string Body { get; set; }
     public Dictionary<string, string> Data { get; set; }
-    public SendNotificationRequest()
+    public PushMessage()
     {
 
     }
-    public SendNotificationRequest(string deviceToken, string title, string body, Dictionary<string, string> data = null)
+    public PushMessage(string deviceToken, string title, string body, Dictionary<string, string> data = null)
     {
         DeviceToken = deviceToken;
         Title = title;

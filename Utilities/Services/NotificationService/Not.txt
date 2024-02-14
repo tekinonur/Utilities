@@ -1,0 +1,5 @@
+﻿Firebase kullanmak için program.cs içinde 
+
+
+FirebaseInitializer.Initialize() çağrılmalı. Alttaki döküman takip edilebilir
+https://medium.com/@m1nori/ios-setup-of-push-notifications-flutter-firebase-775b0430140e
