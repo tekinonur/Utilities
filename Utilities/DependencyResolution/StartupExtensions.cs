@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Utilities.Extensions;
 using Utilities.Helpers;
+using Utilities.Services.NotificationService;
+using Utilities.Services.SmsService;
 
 namespace Utilities.DependencyResolution;
 
@@ -15,6 +17,10 @@ public static class StartupExtensions
     /// <param name="configuration">The configuration instance to load settings</param>
     public static void RegisterUtilities(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddPushNotificationService(configuration);
+
+        services.AddSmsService(configuration);
+
         /* TODO:Tüm servisler burada register edilecek Utilities içindeki */
         // Assuming IHelper and IFileHelper are within the Utilities.Helpers namespace
         //services.AddImplementations<IHelper>(typeof(Utilities.Helpers).Assembly, "Helper");

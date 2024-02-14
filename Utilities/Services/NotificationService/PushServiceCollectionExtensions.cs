@@ -10,7 +10,7 @@ namespace Utilities.Services.NotificationService
 {
     public static class PushServiceCollectionExtensions
     {
-        public static IServiceCollection AddPushServicePushNotificationService(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPushNotificationService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IPushNotificationService, PushNotificationService>();
 
