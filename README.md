@@ -7,6 +7,7 @@ git submodule update --init
 git submodule update --recursive --remote
 
 ---push to origin
+
 $ cd your_submodule
 
 $ git checkout master
