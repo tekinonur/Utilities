@@ -8,12 +8,19 @@ git submodule update --recursive --remote
 
 ---push to origin
 $ cd your_submodule
+
 $ git checkout master
+
 <hack,edit>
+
 $ git commit -a -m "commit in submodule"
+
 $ git push
+
 $ cd ..
+
 $ git add your_submodule
+
 $ git commit -m "Updated submodule"
 
 vstudio
