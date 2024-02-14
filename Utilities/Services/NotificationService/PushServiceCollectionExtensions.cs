@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Utilities.Services.NotificationService
 {
-    public static class PushServiceServiceCollectionExtensions
+    public static class PushServiceCollectionExtensions
     {
         public static IServiceCollection AddPushServicePushNotificationService(this IServiceCollection services, IConfiguration configuration)
         {
