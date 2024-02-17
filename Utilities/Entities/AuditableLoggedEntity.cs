@@ -4,10 +4,10 @@ namespace Utilities.Entities;
 
 public abstract class AuditableLoggedEntity : AuditableEntity
 {
-    public int CreatedById { get; set; }
+    public int? CreatedById { get; set; }
     [DisplayName("Ekleyen")]
-    public string CreatedBy { get; set; }
-    public int UpdatedById { get; set; }
+    public string? CreatedBy { get; set; }
+    public int? UpdatedById { get; set; }
     [DisplayName("Güncelleyen")]
-    public string UpdatedBy { get; set; }
+    public string? UpdatedBy { get; set; }
 }
