@@ -4,7 +4,8 @@ git submodule add PATH.git
 
 git submodule update --init
 
-git submodule update --recursive --remote
+git submodule update --recursive --remote 
+//Yukarıdaki kod hata verirse update kısmında silip tekrar git submodule update yapılır
 
 ---push to origin
 
